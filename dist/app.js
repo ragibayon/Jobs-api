@@ -39,6 +39,9 @@ app.use(rateLimiter({
     max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
 }));
 // routes
+app.get('/', (req, res, next) => {
+    res.send('Jobs API');
+});
 app.use('/api/v1/auth', auth_1.default);
 app.use('/api/v1/jobs', authentication_1.authenticateUser, jobs_1.default);
 app.use(not_found_1.default);

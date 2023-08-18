@@ -34,6 +34,9 @@ app.use(
 );
 
 // routes
+app.get('/', (req, res, next) => {
+  res.send('Jobs API');
+});
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/jobs', authenticateUser, jobsRouter);
 
