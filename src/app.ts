@@ -5,6 +5,13 @@ import jobsRouter from './routes/jobs';
 import authRouter from './routes/auth';
 import connectDB from './db/connect';
 
+// security packages
+
+import helmet from 'helmet';
+const cors = require('cors');
+const xss = require('xss-clean');
+const rateLimiter = require('express-rate-limit');
+
 const app = express();
 
 // error handler
@@ -15,7 +22,16 @@ import errorHandlerMiddleware from './middleware/error-handler';
 import {authenticateUser} from './middleware/authentication';
 
 app.use(express.json());
-// extra packages
+app.use(helmet());
+app.use(cors());
+app.use(xss());
+app.set('trust proxy', 1);
+app.use(
+  rateLimiter({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, // Limit each IP to 100 requests per `window` (here, per 15 minutes)
+  })
+);
 
 // routes
 app.use('/api/v1/auth', authRouter);
