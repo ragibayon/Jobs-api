@@ -12,14 +12,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteAll = exports.login = exports.register = void 0;
+exports.login = exports.register = void 0;
 const http_status_codes_1 = require("http-status-codes");
 const User_1 = __importDefault(require("../models/User"));
 const errors_1 = require("../errors");
 const register = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const user = yield User_1.default.create(Object.assign({}, req.body));
     const token = user.createJWT();
-    res.status(http_status_codes_1.StatusCodes.CREATED).json({ user: { name: user.name } });
+    res.status(http_status_codes_1.StatusCodes.CREATED).json({ user: { name: user.name }, token });
 });
 exports.register = register;
 const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
@@ -40,8 +40,3 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         .json({ user: { name: user.name }, token: user.createJWT() });
 });
 exports.login = login;
-const deleteAll = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    yield User_1.default.deleteMany();
-    res.json({ msg: 'cleared user' });
-});
-exports.deleteAll = deleteAll;
