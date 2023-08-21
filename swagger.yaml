@@ -22,13 +22,13 @@ paths:
               allOf:
                 - $ref: '#/components/schemas/RegisterUserRequest'
                 - example:
-                    name: ayon
-                    email: test2@email.com
-                    password: '123456'
+                    name: John Doe
+                    email: johndoe@email.com
+                    password: 'secret'
             example:
-              name: ayon
-              email: test2@email.com
-              password: '123456'
+              name: John Doe
+              email: johndoe@email.com
+              password: 'secret'
         required: true
       responses:
         '200':
@@ -51,11 +51,11 @@ paths:
               allOf:
                 - $ref: '#/components/schemas/LoginRequest'
                 - example:
-                    email: test@email.com
-                    password: '123456'
+                    email: johndoe@email.com
+                    password: 'secret'
             example:
-              email: test@email.com
-              password: '123456'
+              email: johndoe@email.com
+              password: 'secret'
         required: true
       responses:
         '200':
@@ -141,7 +141,6 @@ paths:
                 - $ref: '#/components/schemas/UpdateJobRequest'
                 - example:
                     status: interview
-                    company: lll
             example:
               status: interview
         required: true
@@ -183,9 +182,9 @@ components:
         password:
           type: string
       example:
-        name: ayon
-        email: test2@email.com
-        password: '123456'
+        name: John Doe
+        email: johndoe@email.com
+        password: 'secret'
     LoginRequest:
       title: LoginRequest
       required:
@@ -198,8 +197,8 @@ components:
         password:
           type: string
       example:
-        email: test@email.com
-        password: '123456'
+        email: johndoe@email.com
+        password: 'secret'
     CreateJobRequest:
       title: CreateJobRequest
       required:
