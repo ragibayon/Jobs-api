@@ -2,8 +2,7 @@
 
 Jobs API is a simple set of APIs developed using the nodejs. In this project we used JWT for user authentication and authorization. As well as developed a swagger UI for accessing the APIs easily.
 
-> [Visit the Live demo on render](https://job-api-jk9q.onrender.com)
-> _please note that this project is deployed with Render’s free instance types which spin-down with inactivity._
+> [Visit the Live demo on render](https://job-api-jk9q.onrender.com) > _please note that this project is deployed with Render’s free instance types which spin-down with inactivity._
 
 ## Installation
 
@@ -54,7 +53,9 @@ TypeScript will automatically compile your code to JavaScript and output it to t
   This project is a very simple application as used as a practice for swagger and jwt, that is why it does not have proper input validation. In future developments I have plan to add them.
 
 - **Longer time to load**
-  This project is deployed using Render's free instance types, which have a feature of spinning down due to inactivity. When the app is accessed after a period of inactivity, there might be a slight delay as the instance spins up. However, once it's up, the app functions smoothly. The deployment is located on a server in Singapore, while the MongoDB database is deployed in Mumbai. This geographic distribution facilitates easier development.
+  This project is deployed using Render's Web Services on the free instance type, which automatically spun down after 15 minutes of inactivity. When a new request for a free service comes in, Render spins it up again so it can process the request. This will cause a delay in the response of the first request after a period of inactivity while the instance spins up. However, once it's up, the app functions smoothly.
+
+  The deployment is located on a server in _Singapore_, while the MongoDB database is deployed in _Mumbai_. This geographic distribution facilitates easier development.
 
 ## Credits
 
