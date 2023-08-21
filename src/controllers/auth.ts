@@ -28,8 +28,3 @@ export const login = async (req: Request, res: Response) => {
     .status(StatusCodes.OK)
     .json({user: {name: user.name}, token: user.createJWT()});
 };
-
-export const deleteAll = async (req: Request, res: Response) => {
-  await User.deleteMany();
-  res.json({msg: 'cleared user'});
-};
